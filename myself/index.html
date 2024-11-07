@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="chat-interface">
+        <!-- Chat header (can be used for room title or status) -->
+        <div id="chat-header">Chat Room</div>
+
+        <!-- Main chat area -->
+        <div id="chat-main">
+            <div class="message other">Hello! How can I help you today?</div>
+            <div class="message self">I need assistance with my account.</div>
+            <div class="message other">I'd be happy to help. What issue are you facing?</div>
+        </div>
+        
+        <!-- Message input area -->
+        <div id="message-input-area">
+            <input type="text" id="message-input" placeholder="Type a message..." />
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="index.js">
+    </script>
+</body>
+</html>

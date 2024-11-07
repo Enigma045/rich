@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging Tab</title>
+    <style>
+        /* Basic styling for the messaging tab */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #chat-container {
+            width: 300px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+            overflow: hidden;
+        }
+        #message-display {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        .message {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #e1f5fe;
+            border-radius: 5px;
+        }
+        .message.self {
+            background-color: #c8e6c9;
+            text-align: right;
+        }
+        #message-input {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ccc;
+        }
+        #message-input input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #message-input button {
+            margin-left: 5px;
+            padding: 8px 12px;
+            border: none;
+            background-color: #4caf50;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #message-input button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <!-- Display for incoming and outgoing messages -->
+        <div id="message-display"></div>
+        
+        <!-- Input area for new messages -->
+        <div id="message-input">
+            <input type="text" id="message" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulated function to send and display messages
+        function sendMessage() {
+            const messageInput = document.getElementById("message");
+            const messageDisplay = document.getElementById("message-display");
+            const message = messageInput.value.trim();
+
+            if (message) {
+                // Display the new message in the chat (as a "self" message)
+                const messageElement = document.createElement("div");
+                messageElement.classList.add("message", "self");
+                messageElement.textContent = message;
+                messageDisplay.appendChild(messageElement);
+
+                // Scroll to the latest message
+                messageDisplay.scrollTop = messageDisplay.scrollHeight;
+
+                // Clear the input field
+                messageInput.value = "";
+
+                // In a real scenario, here you would send the message to the server
+                // sendMessageToServer(message);
+            }
+        }
+    </script>
+</body>
+</html>
